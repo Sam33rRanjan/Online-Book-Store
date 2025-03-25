@@ -30,6 +30,12 @@ public class BookController {
 		return bookService.getAllBooks();
 	}
 	
+	@GetMapping("/books/{id}")
+	public Book getBook(@PathVariable("id") int id) {
+		logger.info("Controller method to get book by ID called");
+		return bookService.getBookById(id);
+	}
+	
 	@PutMapping("/books/{id}") // This annotation is used to create a PUT request
 	public String updateBook(@PathVariable("id") int id,@RequestBody Book book) {
 		logger.warn("Controller method to update book called");
